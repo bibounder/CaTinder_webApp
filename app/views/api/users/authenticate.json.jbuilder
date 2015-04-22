@@ -1,0 +1,1 @@
+json.extract! @user, :name, :token, :role, :tw_user, :fb_user
