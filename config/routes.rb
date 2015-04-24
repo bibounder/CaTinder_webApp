@@ -11,12 +11,15 @@ Rails.application.routes.draw do
     resources :cats, only: [:index, :show]
 
     resources :races, only: [:index]
+
+    resources :cat_likes, only: [:create]
   end
 
   scope module: 'front' do
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'
 
-    root to: 'cat_likes#index'
+    #root to: 'cat_likes#index'
+    root to: 'misc#index'
   end
 end

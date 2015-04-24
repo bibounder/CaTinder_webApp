@@ -1,0 +1,12 @@
+%h1 Bienvenue sur le site des amis de pépito!
+
+%p
+  - if can? :access, :rails_admin
+    Vous pouvez accéder à l'administration pour gérer les chats, races et autres.
+  - else
+    Vous n'avez pas de droits.
+
+%hr
+
+%h3
+  %a(href="http://lesamisdepepito.fr/") Accéder au site de l'asso

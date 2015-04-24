@@ -1,6 +1,7 @@
 class Cat < ActiveRecord::Base
   belongs_to :race
   has_many :cat_images, inverse_of: :cat, dependent: :destroy
+  has_many :cat_likes, inverse_of: :cat, dependent: :destroy
   accepts_nested_attributes_for :cat_images, allow_destroy: true
   validates_numericality_of :age, greater_than_or_equal_to: 0
 

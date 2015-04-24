@@ -1,9 +1,6 @@
 class Api::UsersController < Api::ApiController
-  before_action :fetch_user!, only: [:update]
+  skip_before_action :authenticate!, only: [:authenticate, :create]
   permits :name, :role, :tw_user, :fb_user
-
-  def show
-  end
 
   def authenticate(email, password)
     @user = User.find_by_email(email)
@@ -17,7 +14,7 @@ class Api::UsersController < Api::ApiController
 
     respond_to do |format|
       if @user.save
-        format.json { render action: :show }
+        format.json { render :show }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -28,10 +25,16 @@ class Api::UsersController < Api::ApiController
     @user = current_user
     respond_to do |format|
       if @user.update(user_params)
-        format.json { render action: :show }
+
+        format.json { render :show }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+private
+  def user_params
+    params.permit(:email, :name, :password, :tw_user, :fb_user)
   end
 end

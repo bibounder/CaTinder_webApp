@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   include UuidIdentifiable
 
+  has_many :cat_likes, dependent: :destroy
+  has_many :cats, through: :cat_likes
+
   validates_uniqueness_of :email
   validates_presence_of :email, :name, :role
 
