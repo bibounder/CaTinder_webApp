@@ -5,9 +5,9 @@ class Api::UsersController < Api::ApiController
   def show
   end
 
-  def authenticate(name, password)
-    @user = User.find_by(name: name).try(:authenticate, password)
-    unless @user
+  def authenticate(email, password)
+    @user = User.find_by_email(email)
+    unless @user.try(:authenticate, password)
       render json: {error: 'User not found / incorrect password'}
     end
   end

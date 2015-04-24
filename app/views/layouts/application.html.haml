@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    %title CatinderWeb
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-header
+          .navbar-brand
+            CaTinder
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              %a(href=root_path) Likes
+            - if can? :access, :rails_admin
+              %li
+                %a(href=rails_admin_path) Administration
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a(href="#")= "[#{current_user.name}]"
+    .container
+      = yield

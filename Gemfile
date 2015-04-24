@@ -8,8 +8,19 @@ gem 'sqlite3'
 
 # admin
 gem 'rails_admin'
+gem 'rails_admin-i18n'
 # controller action arguments
 gem 'action_args'
+# upload
+gem 'carrierwave'
+# resize
+gem 'mini_magick'
+# better html
+gem 'haml'
+# better forms
+gem 'simple_form'
+# permissions
+gem 'cancancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,5 +47,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # debug
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end
 

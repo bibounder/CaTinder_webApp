@@ -1,0 +1,12 @@
+.col-md-6
+  = form_tag login_path do
+    - if @error
+      %p.text-danger
+        %b= @error
+      %br
+
+    .form-group
+      = text_field_tag 'email', '', class: 'form-control', placeholder: 'Adresse e-mail'
+    .form-group
+      = password_field_tag 'password', '', class: 'form-control', placeholder: 'Mot de passe'
+    = submit_tag 'Se connecter'

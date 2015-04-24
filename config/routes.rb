@@ -7,5 +7,16 @@ Rails.application.routes.draw do
         get :authenticate
       end
     end
+
+    resources :cats, only: [:index, :show]
+
+    resources :races, only: [:index]
+  end
+
+  scope module: 'front' do
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+
+    root to: 'cat_likes#index'
   end
 end
