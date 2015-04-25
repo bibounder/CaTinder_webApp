@@ -21,6 +21,8 @@ gem 'haml'
 gem 'simple_form'
 # permissions
 gem 'cancancan'
+# translations
+gem 'rails-i18n'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
