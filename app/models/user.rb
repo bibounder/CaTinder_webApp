@@ -19,6 +19,21 @@ class User < ActiveRecord::Base
     role >= ROLE_STAFF
   end
 
+  def check_cat_exterior?
+    # user has no preference: let's skip
+    return false unless self.has_exterior.present || self.appart.present?
+    # if we have an exterior, we don't care!
+    return false if self.has_exterior.present? && self.has_exterior
+    # if we have an appartment and no outside... :(
+    return true if self.appart.present? && self.appart
+    # it's 'k, we're safe, the cat will be happy!
+    return false
+  end
+
+  def has_pets?
+    self.pet_number > 0
+  end
+
   has_secure_password
 
   rails_admin do
@@ -33,7 +48,12 @@ class User < ActiveRecord::Base
 
       default_value 'Utilisateur'
     end
+
     field :tw_user
     field :fb_user
+
+    field :appart
+    field :pet_number
+    field :has_exterior
   end
 end

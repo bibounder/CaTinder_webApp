@@ -2,13 +2,14 @@ fr:
   activerecord:
     models:
       cat: 'Chats'
-      user: 'Utilisateurs'  
+      user: 'Utilisateurs'
     attributes:
       cat:
         gender: 'Genre'
         color: 'Couleur'
         name: 'Nom'
-        appart: 'Appartement'
+        appart: 'Peut vivre en appartement'
+        sociable: 'Est sociable (avec les autres animaux)'
       race:
         name: 'Nom'
       user:
@@ -17,6 +18,8 @@ fr:
         password: 'Mot de passe'
         fb_user: 'Utilisateur Facebook'
         tw_user: 'Utilisateur Twitter'
+        appart: 'Vit dans un appartement'
+        has_exterior: 'Dispose d\'un extérieur'
   admin:
     help:
       cat:

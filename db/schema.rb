@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424083128) do
+ActiveRecord::Schema.define(version: 20150425112947) do
 
   create_table "cat_images", force: :cascade do |t|
     t.integer  "cat_id"
@@ -41,8 +41,11 @@ ActiveRecord::Schema.define(version: 20150424083128) do
     t.string   "color"
     t.integer  "gender"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.boolean  "has_exterior"
+    t.boolean  "sociable"
+    t.boolean  "wants_outside"
   end
 
   add_index "cats", ["race_id"], name: "index_cats_on_race_id"
@@ -63,6 +66,9 @@ ActiveRecord::Schema.define(version: 20150424083128) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "email"
+    t.boolean  "appart"
+    t.integer  "pet_number"
+    t.boolean  "has_exterior"
   end
 
 end

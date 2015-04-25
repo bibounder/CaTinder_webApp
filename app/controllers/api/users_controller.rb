@@ -4,7 +4,9 @@ class Api::UsersController < Api::ApiController
 
   def authenticate(email, password)
     @user = User.find_by_email(email)
-    unless @user.try(:authenticate, password)
+    if @user.try(:authenticate, password)
+      render :show
+    else
       render json: {error: 'User not found / incorrect password'}
     end
   end
@@ -16,7 +18,7 @@ class Api::UsersController < Api::ApiController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_create_params)
 
     respond_to do |format|
       if @user.save
@@ -30,7 +32,7 @@ class Api::UsersController < Api::ApiController
   def update
     @user = current_user
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_update_params)
 
         format.json { render :show }
       else
@@ -40,7 +42,11 @@ class Api::UsersController < Api::ApiController
   end
 
 private
-  def user_params
+  def user_create_params
     params.permit(:email, :name, :password, :tw_user, :fb_user)
+  end
+
+  def user_update_params
+    params.permit(:appart, :pet_number, :has_exterior)
   end
 end
