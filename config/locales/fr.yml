@@ -1,0 +1,23 @@
+fr:
+  activerecord:
+    models:
+      cat: 'Chats'
+      user: 'Utilisateurs'  
+    attributes:
+      cat:
+        gender: 'Genre'
+        color: 'Couleur'
+        name: 'Nom'
+        appart: 'Appartement'
+      race:
+        name: 'Nom'
+      user:
+        name: 'Nom'
+        email: 'Adresse mail'
+        password: 'Mot de passe'
+        fb_user: 'Utilisateur Facebook'
+        tw_user: 'Utilisateur Twitter'
+  admin:
+    help:
+      cat:
+        appart: "Le chat n'a pas besoin de sortir"
