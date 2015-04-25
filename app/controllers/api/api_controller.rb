@@ -5,7 +5,9 @@ class Api::ApiController < ApplicationController
 
   # @return [User]
   def current_user
-    @current_user ||= User.first(name: params[:name], token: params[:token])
+    if params[:email] && params[:token]
+      @current_user ||= User.where(email: params[:email], token: params[:token]).first
+    end
   end
 
   def authenticate!

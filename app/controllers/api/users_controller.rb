@@ -9,6 +9,12 @@ class Api::UsersController < Api::ApiController
     end
   end
 
+  def social_network_authenticate(name, email, tw_user:, fb_user:)
+    if tw_user
+      user = User.where(tw_user: tw_user)
+    end
+  end
+
   def create
     @user = User.new(user_params)
 
