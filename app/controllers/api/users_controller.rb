@@ -47,6 +47,6 @@ private
   end
 
   def user_update_params
-    params.permit(:appart, :pet_number, :has_exterior)
+    params.permit(:pet_number, :has_exterior)
   end
 end

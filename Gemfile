@@ -23,7 +23,6 @@ gem 'simple_form'
 gem 'cancancan'
 # translations
 gem 'rails-i18n'
-# query
 
 
 # Use jquery as the JavaScript library

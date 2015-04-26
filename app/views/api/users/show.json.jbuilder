@@ -1,2 +1,2 @@
-json.extract! @user, :name, :role, :email, :tw_user, :fb_user,
-                     :appart, :pet_number, :has_exterior
+json.extract! @user, :name, :role, :email, :token, :tw_user, :fb_user,
+                     :pet_number, :has_exterior

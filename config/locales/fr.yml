@@ -8,7 +8,7 @@ fr:
         gender: 'Genre'
         color: 'Couleur'
         name: 'Nom'
-        appart: 'Peut vivre en appartement'
+        wants_outside: 'A besoin d''un "dehors"'
         sociable: 'Est sociable (avec les autres animaux)'
       race:
         name: 'Nom'
@@ -18,9 +18,9 @@ fr:
         password: 'Mot de passe'
         fb_user: 'Utilisateur Facebook'
         tw_user: 'Utilisateur Twitter'
-        appart: 'Vit dans un appartement'
-        has_exterior: 'Dispose d\'un extérieur'
+        has_exterior: 'Dispose d''un extérieur'
+        pet_number: 'Nombre d''animaux actuellement'
   admin:
     help:
       cat:
-        appart: "Le chat n'a pas besoin de sortir"
+        #wants_outs: "Le chat n'a pas besoin de sortir"

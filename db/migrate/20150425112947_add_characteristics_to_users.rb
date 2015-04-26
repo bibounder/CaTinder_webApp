@@ -1,6 +1,5 @@
 class AddCharacteristicsToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :appart, :boolean
     add_column :users, :pet_number, :integer
     add_column :users, :has_exterior, :boolean
 

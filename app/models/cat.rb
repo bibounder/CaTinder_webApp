@@ -1,7 +1,6 @@
 class Cat < ActiveRecord::Base
   belongs_to :race
   has_many :cat_images, inverse_of: :cat, dependent: :destroy
-  has_many :cat_likes, inverse_of: :cat, dependent: :destroy
   accepts_nested_attributes_for :cat_images, allow_destroy: true
   validates_numericality_of :age, greater_than_or_equal_to: 0
 
@@ -13,7 +12,6 @@ class Cat < ActiveRecord::Base
   rails_admin do
     field :race
     field :name
-    field :appart
     field :gender, :enum do
       # noinspection RubyArgCount
       enum do
@@ -25,6 +23,8 @@ class Cat < ActiveRecord::Base
     field :age
     field :color
     field :description
+    field :sociable
+    field :wants_outside
     field :cat_images
   end
 end

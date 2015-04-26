@@ -36,14 +36,12 @@ ActiveRecord::Schema.define(version: 20150425112947) do
   create_table "cats", force: :cascade do |t|
     t.integer  "race_id"
     t.string   "name"
-    t.boolean  "appart"
     t.integer  "age"
     t.string   "color"
     t.integer  "gender"
     t.text     "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.boolean  "has_exterior"
     t.boolean  "sociable"
     t.boolean  "wants_outside"
   end
@@ -66,7 +64,6 @@ ActiveRecord::Schema.define(version: 20150425112947) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "email"
-    t.boolean  "appart"
     t.integer  "pet_number"
     t.boolean  "has_exterior"
   end

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :email
   validates_presence_of :email, :name, :role
+  validates_numericality_of :pet_number, greater_than_or_equal_to: 0
 
   ROLE_USER = 0
   ROLE_STAFF = 1
@@ -19,19 +20,11 @@ class User < ActiveRecord::Base
     role >= ROLE_STAFF
   end
 
-  def check_cat_exterior?
-    # user has no preference: let's skip
-    return false unless self.has_exterior.present || self.appart.present?
-    # if we have an exterior, we don't care!
-    return false if self.has_exterior.present? && self.has_exterior
-    # if we have an appartment and no outside... :(
-    return true if self.appart.present? && self.appart
-    # it's 'k, we're safe, the cat will be happy!
-    return false
-  end
-
-  def has_pets?
-    self.pet_number > 0
+  # @param [Cat] cat
+  def cat_matches?(cat)
+    return false if self.pet_number > 0 && !cat.sociable
+    return false if cat.wants_outside && !self.has_exterior
+    return true
   end
 
   has_secure_password
@@ -52,7 +45,6 @@ class User < ActiveRecord::Base
     field :tw_user
     field :fb_user
 
-    field :appart
     field :pet_number
     field :has_exterior
   end
