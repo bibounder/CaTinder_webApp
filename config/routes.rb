@@ -22,5 +22,6 @@ Rails.application.routes.draw do
 
     #root to: 'cat_likes#index'
     root to: 'misc#index'
+    get 'clear_likes' => 'misc#clear_likes'
   end
 end
