@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :races, only: [:index]
 
     resources :cat_likes, only: [:create]
+    get 'cat_likes' => 'cat_likes#create'
   end
 
   scope module: 'front' do
